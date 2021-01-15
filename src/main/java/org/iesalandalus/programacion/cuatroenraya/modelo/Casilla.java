@@ -6,6 +6,17 @@ public class Casilla {
 	private Ficha ficha;
 
 	
+	/*******CONSTRUCTORES*******/
+	/**
+	 * Constructor por defecto, que inicialmente pondrá el atributo 
+	 * ficha a null.
+	 */
+	public Casilla () {
+		
+		ficha = null;
+	}
+	
+	
 	/*********GETTERS Y SETTERS**********/
 	
 	public Ficha getFicha() {
