@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.cuatroenraya.modelo;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Casilla {
 
 	/*********ATRIBUTOS*********/
@@ -13,7 +15,7 @@ public class Casilla {
 	 */
 	public Casilla () {
 		
-		ficha = null;
+		this.ficha = null;
 	}
 	
 	
@@ -23,13 +25,24 @@ public class Casilla {
 		return ficha;
 	}
 
-	public void setFicha(Ficha ficha) {
+	public void setFicha(Ficha ficha) throws OperationNotSupportedException {
 		
-		if (ficha==null) 
-			throw new NullPointerException("ERROR: No se puede poner una ficha nula.");
-		else 
-			this.ficha = ficha;
-	}
+		if (estaOcupada()== false) {
+			
+			if (ficha==null) {
+				throw new NullPointerException("ERROR: No se puede poner una ficha nula.");
+			} else if (ficha == Ficha.AZUL) {
+				this.ficha = Ficha.AZUL;
+			} else if (ficha == Ficha.VERDE) {
+				this.ficha = Ficha.VERDE;
+			} else {
+				throw new IllegalArgumentException("ERROR: El color escogido es incorrecto.");
+			}
+		
+		} else {
+			throw new OperationNotSupportedException("ERROR: Ya contengo una ficha.");
+		}
+	}	
 	
 	
 	/********OTROS MÉTODOS********/
@@ -42,7 +55,7 @@ public class Casilla {
 		
 		boolean casillaOcupada = false;
 		
-		if (ficha==Ficha.AZUL || ficha==Ficha.VERDE) {
+		if (this.ficha==Ficha.AZUL || this.ficha==Ficha.VERDE) {
 			casillaOcupada = true;
 		}
 			
