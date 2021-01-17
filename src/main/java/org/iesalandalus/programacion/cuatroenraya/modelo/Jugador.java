@@ -6,7 +6,18 @@ public class Jugador {
 	private String nombre;
 	private Ficha colorFichas;
 	
+	
+	/*******CONSTRUCTORES*******/
+	/**
+	 * Constructor con parámetros (nombre y colorFichas).
+	 * Hará uso de los métodos set para asignar valor a los atributos.
+	 */
+	public Jugador (String nombre, Ficha colorFichas) {
+		setNombre(nombre);
+		setColorFichas(colorFichas);
+	}
 		
+	
 	/*********GETTERS Y SETTERS**********/
 	
 	public Ficha getColorFichas() {
