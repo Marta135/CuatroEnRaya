@@ -48,4 +48,22 @@ public class Casilla {
 			
 		return casillaOcupada;
 	}
+
+	
+	/**
+	 * Método toString
+	 * Mostrará la inicial del valor de la ficha o un espacio en blanco si
+	 * la casilla no está ocupada
+	 */
+	@Override
+	public String toString() {
+		
+		if (ficha == null) {
+			return " ";
+		} else {
+			return String.format("%.1s", ficha);
+		}	
+	}
+	
+	
 }
