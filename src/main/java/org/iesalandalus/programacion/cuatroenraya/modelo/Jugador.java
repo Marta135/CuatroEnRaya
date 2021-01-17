@@ -47,8 +47,18 @@ public class Jugador {
 			this.nombre = nombre;
 		}
 	}
-	
-	
+
+
+	/********OTROS MÉTODOS********/
+	/**
+	 * Método toString
+	 * Imprimirá el nombre y color de fichas del jugador.
+	 */
+	@Override
+	public String toString() {
+		return this.nombre + " (" + this.colorFichas + ")";
+	}
+
 }
 
 
