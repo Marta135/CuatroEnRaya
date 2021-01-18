@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.cuatroenraya.modelo;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Tablero {
 
 	/*********ATRIBUTOS*********/
@@ -105,6 +107,21 @@ public class Tablero {
 		
 		return columnaLlena;
 	}
+	
+	
+	/**
+	 * Método comprobarFicha:
+	 * Lanzará una excepción si el parámetro no es correcto.
+	 */
+	private void comprobarFicha(Ficha ficha) {
+		
+		if (ficha == null) {
+			throw new NullPointerException("ERROR: La ficha no puede ser nula.");
+		} else if (ficha != Ficha.AZUL && ficha != Ficha.VERDE) {
+			throw new IllegalArgumentException("ERROR: El color escogido es incorrecto.");
+		}
+	}
+	
 	
 	
 }
