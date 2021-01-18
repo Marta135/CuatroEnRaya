@@ -25,7 +25,23 @@ public class Tablero {
 	}
 	
 	
+	/**********MÉTODOS**************/
 	
+	/**
+	 * Método columnaVacia:
+	 * Devolverá true o false dependiendo de si la columna pasada como
+	 * parámetro está vacía o no. 
+	 */
+	private boolean columnaVacia(int columna) {
+		
+		boolean columnaVacia = false;
+		
+		if(casillas[0][columna].estaOcupada()) {
+			columnaVacia = false;
+		}
+			
+		return columnaVacia;
+	}
 	
 	
 	
