@@ -28,6 +28,26 @@ public class Tablero {
 	/**********MÉTODOS**************/
 	
 	/**
+	 * Método estaVacio:
+	 * Devolverá true o false dependiendo de que el tablero esté vacío o no.
+	 */
+	public boolean estaVacio() {
+		
+		boolean tableroVacio = true;
+		
+		for (int i=0; i<COLUMNAS; i++) {
+		
+			boolean columnaVacia = columnaVacia(i);
+			if (!columnaVacia) {
+				tableroVacio = false;	
+			}
+		}
+		
+		return tableroVacio;
+	}
+	
+	
+	/**
 	 * Método columnaVacia:
 	 * Devolverá true o false dependiendo de si la columna pasada como
 	 * parámetro está vacía o no. 
