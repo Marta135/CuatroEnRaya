@@ -38,7 +38,7 @@ public class Tablero {
 		for (int i=0; i<COLUMNAS; i++) {
 		
 			boolean columnaVacia = columnaVacia(i);
-			if (!columnaVacia) {
+			if (columnaVacia == false) {
 				tableroVacio = false;	
 			}
 		}
@@ -54,15 +54,37 @@ public class Tablero {
 	 */
 	private boolean columnaVacia(int columna) {
 		
-		boolean columnaVacia = false;
+		boolean columnaVacia = true;
 		
-		if(casillas[0][columna].estaOcupada()) {
-			columnaVacia = false;
-		}
+		for (int i=0; i<FILAS; i++) {
 			
+			if(casillas[i][columna].estaOcupada()) {
+				columnaVacia = false;
+			}	
+		}
+		
 		return columnaVacia;
 	}
 	
+	
+	/**
+	 * Método columnaLlena:
+	 * Devolverá true o false dependiendo de si la columna pasada como
+	 * parámetro está llena o no. 
+	 */
+	private boolean columnaLlena(int columna) {
+		
+		boolean columnaLlena = false;
+		
+		for (int i=0; i<FILAS; i++) {
+			
+			if (casillas[i][columna].estaOcupada()) {
+				columnaLlena = true;
+			}
+		}
+		
+		return columnaLlena;
+	}
 	
 	
 }
