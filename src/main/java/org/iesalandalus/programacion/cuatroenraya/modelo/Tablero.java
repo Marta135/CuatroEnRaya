@@ -68,6 +68,26 @@ public class Tablero {
 	
 	
 	/**
+	 * Método estaLleno:
+	 * Devolverá true o false dependiendo de que el tablero esté lleno o no.
+	 */
+	public boolean estaLleno() {
+		
+		boolean tableroLleno = false;
+		
+		for (int i=0; i<COLUMNAS; i++) {
+			
+			boolean columnaLlena = columnaLlena(i);
+			if (columnaLlena == true) {
+				tableroLleno = true;	
+			}
+		}
+		
+		return tableroLleno;
+	}
+	
+	
+	/**
 	 * Método columnaLlena:
 	 * Devolverá true o false dependiendo de si la columna pasada como
 	 * parámetro está llena o no. 
