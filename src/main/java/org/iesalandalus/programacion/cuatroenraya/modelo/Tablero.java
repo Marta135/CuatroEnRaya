@@ -134,4 +134,22 @@ public class Tablero {
 		}
 	}
 	
+	
+	/**
+	 * Método getPrimeraFilaVacia:
+	 * Devolverá la primera fila vacía para la columna pasada por parámetro. 
+	 */
+	private int getPrimeraFilaVacia (int columna) {
+		
+		int primeraFilaVacia = 0;
+		
+		for (int i=0; i<FILAS; i++) {
+			if(casillas[i][columna].estaOcupada() == false) {
+				primeraFilaVacia = i;
+			}
+		}
+		
+		return primeraFilaVacia;
+	}
+	
 }
