@@ -123,5 +123,15 @@ public class Tablero {
 	}
 	
 	
+	/**
+	 * Método comprobarColumna:
+	 * Lanzará una excepción si el parámetro no es correcto.
+	 */
+	private void comprobarColumna(int columna) {
+		
+		if (columna<0 || columna>COLUMNAS) {
+			throw new IllegalArgumentException("ERROR: La columna introducida es incorrecta.");
+		}
+	}
 	
 }
