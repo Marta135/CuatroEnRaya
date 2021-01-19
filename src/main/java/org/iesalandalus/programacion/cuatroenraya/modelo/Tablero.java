@@ -152,4 +152,24 @@ public class Tablero {
 		return primeraFilaVacia;
 	}
 	
+	
+	/**
+	 * Método objetivoAlcanzado:
+	 * Aceptará como parámetro el número de fichas consecutivas que llevamos.
+	 * Devolverá true o false si el parámetro pasado es mayor o igual que
+	 * la constante definida en esta clase (FICHAS_IGUALES_CONSECUTIVAS_NECESARIAS).
+	 */
+	private boolean objetivoAlcanzado (int fichasConsecutivas) {
+		
+		boolean objetivoLogrado = false;
+		
+		if (fichasConsecutivas >= FICHAS_IGUALES_CONSECUTIVAS_NECESARIAS) {
+			objetivoLogrado = true;
+		}
+		return objetivoLogrado;
+	}
+	
+	
+	
+	
 }
