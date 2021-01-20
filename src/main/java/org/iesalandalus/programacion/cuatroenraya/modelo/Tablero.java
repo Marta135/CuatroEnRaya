@@ -197,4 +197,29 @@ public class Tablero {
 	}
 	
 	
+	/**
+	 * Método comprobarVertical:
+	 * Aceptará la columna y la ficha para la que queremos comprobar si hay cuatro
+	 * del mismo color seguidas en vertical.
+	 */
+	private boolean comprobarVertical(int columna, Ficha ficha) {
+		
+		boolean conseguido = false;
+		int contadorFichas = 0;
+		
+		for (int i=0; i<FILAS; i++) {
+			
+			if(casillas[i][columna].getFicha() == ficha) {
+				contadorFichas++;
+				
+				if(objetivoAlcanzado(contadorFichas) == true) {
+					conseguido = true;
+				}
+			} else {
+				contadorFichas = 0;
+			}
+		}
+		return conseguido;
+	}
+	
 }
