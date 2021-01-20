@@ -170,6 +170,31 @@ public class Tablero {
 	}
 	
 	
+	/**
+	 * Método comprobarHorizontal:
+	 * Aceptará la fila y la ficha para la que queremos comprobar si hay cuatro
+	 * del mismo color seguidas en horizontal.
+	 */
+	private boolean comprobarHorizontal (int fila, Ficha ficha) {
+		
+		boolean conseguido = false;
+		int contadorFichas = 0;
+		
+		for (int i=0; i<COLUMNAS; i++) {
+			
+			if(casillas[fila][i].getFicha() == ficha) {
+				contadorFichas++;
+				
+				if(objetivoAlcanzado(contadorFichas) == true) {
+					conseguido = true;
+				}
+			} else {
+				contadorFichas = 0;
+			}
+		}
+		
+		return conseguido;
+	}
 	
 	
 }
