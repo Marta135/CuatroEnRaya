@@ -222,4 +222,13 @@ public class Tablero {
 		return conseguido;
 	}
 	
+	
+	/**
+	 * Método menor:
+	 * Recibirá dos enteros y devolverá el menor de ellos.
+	 */
+	private int menor(int entero1, int entero2) {
+		return Math.min(entero1, entero2);
+	}
+	
 }
