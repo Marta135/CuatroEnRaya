@@ -41,7 +41,7 @@ public class Jugador {
 		
 		if (nombre == null) {
 			throw new NullPointerException("ERROR: El nombre no puede ser nulo.");
-		} else if (nombre.matches("") || nombre.matches("\\s+")) {
+		} else if (nombre.matches("") || nombre.matches("\s+")) {
 			throw new IllegalArgumentException("ERROR: El nombre no puede estar vacío.");
 		} else {
 			this.nombre = nombre;
@@ -56,7 +56,7 @@ public class Jugador {
 	 */
 	@Override
 	public String toString() {
-		return this.nombre + " (" + this.colorFichas + ")";
+		return String.format("%s (%s)", nombre, colorFichas);
 	}
 
 }
