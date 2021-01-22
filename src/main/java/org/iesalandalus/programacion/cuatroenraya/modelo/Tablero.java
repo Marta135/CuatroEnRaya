@@ -105,6 +105,31 @@ public class Tablero {
 	
 	
 	/**
+	 * Método introducirFicha:
+	 * Aceptará como parámetros la columna en la que queremos introducir la ficha y la ficha
+	 * a introducir.
+	 * Devolverá true o false dependiendo de si la jugada ha sido ganadora o no. 
+	 */
+	public boolean introducirFicha(int columna, Ficha ficha) throws OperationNotSupportedException {
+		
+		boolean jugadaGanadora = false;
+		
+		comprobarColumna(columna);
+		comprobarFicha(ficha);
+		
+		if(columnaLlena(columna)==true) {
+			throw new OperationNotSupportedException("ERROR: Columna llena.");
+		} else {
+			
+			int filaVacia = getPrimeraFilaVacia(columna);
+			casillas[filaVacia][columna].setFicha(ficha);
+			jugadaGanadora = comprobarTirada(filaVacia, columna);
+		}
+		return jugadaGanadora;
+	}
+	
+	
+	/**
 	 * Método comprobarFicha:
 	 * Lanzará una excepción si el parámetro no es correcto.
 	 */
