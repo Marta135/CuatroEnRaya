@@ -149,6 +149,26 @@ public class Tablero {
 	
 	
 	/**
+	 * Método comprobarTirada:
+	 * Aceptará como parámetros la fila, columna y la ficha de la última tirada
+	 * para comprobar si es ganadora o no. 
+	 */
+	private boolean comprobarTirada(int fila, int columna) {
+		
+		boolean victoria = false;
+		
+		if (comprobarHorizontal(fila, casillas[fila][columna].getFicha()) || 
+				comprobarVertical(columna, casillas[fila][columna].getFicha()) ||
+				comprobarDiagonalNE(fila, columna, casillas[fila][columna].getFicha()) ||
+				comprobarDiagonalNO(fila, columna, casillas[fila][columna].getFicha())) {
+			
+			victoria = true;
+		}
+		return victoria;	
+	}
+	
+	
+	/**
 	 * Método objetivoAlcanzado:
 	 * Aceptará como parámetro el número de fichas consecutivas que llevamos.
 	 * Devolverá true o false si el parámetro pasado es mayor o igual que
