@@ -150,7 +150,7 @@ public class Tablero {
 	private void comprobarColumna(int columna) {
 		
 		if (columna<0 || columna>COLUMNAS) {
-			throw new IllegalArgumentException("ERROR: La columna introducida es incorrecta.");
+			throw new IllegalArgumentException("ERROR: Columna incorrecta.");
 		}
 	}
 	
@@ -339,6 +339,28 @@ public class Tablero {
 	 */
 	private int menor(int entero1, int entero2) {
 		return Math.min(entero1, entero2);
+	}
+	
+	
+	/**
+	 * Método toString:
+	 * Devolverá la representación del tablero.
+	 */
+	public String toString() {
+		
+		StringBuilder tablero = new StringBuilder();
+		
+		for(int i=FILAS-1; i>=0; i--) {
+			tablero.append("|");
+			
+			for(int j=0; j<COLUMNAS; j++) {
+				tablero.append(casillas[i][j]);
+			}
+			tablero.append("|\n");
+		}
+		tablero.append(" -------\n");
+		
+		return tablero.toString();
 	}
 	
 }
