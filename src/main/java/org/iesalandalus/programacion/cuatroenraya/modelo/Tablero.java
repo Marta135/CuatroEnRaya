@@ -5,10 +5,11 @@ import javax.naming.OperationNotSupportedException;
 public class Tablero {
 
 	/*********ATRIBUTOS*********/
-	private Casilla[][] casillas;
 	public static final int FILAS = 6;
 	public static final int COLUMNAS = 7;
 	public static final int FICHAS_IGUALES_CONSECUTIVAS_NECESARIAS = 4;
+	
+	private Casilla[][] casillas;
 	
 	
 	/*******CONSTRUCTORES*******/
@@ -38,13 +39,10 @@ public class Tablero {
 		boolean tableroVacio = true;
 		
 		for (int i=0; i<COLUMNAS; i++) {
-		
-			boolean columnaVacia = columnaVacia(i);
-			if (columnaVacia == false) {
+			if (columnaVacia(i)==false){
 				tableroVacio = false;	
 			}
 		}
-		
 		return tableroVacio;
 	}
 	
@@ -60,7 +58,7 @@ public class Tablero {
 		
 		for (int i=0; i<FILAS; i++) {
 			
-			if(casillas[i][columna].estaOcupada()) {
+			if(casillas[i][columna].estaOcupada()==true) {
 				columnaVacia = false;
 			}	
 		}
@@ -80,6 +78,7 @@ public class Tablero {
 		for (int i=0; i<COLUMNAS; i++) {
 			
 			boolean columnaLlena = columnaLlena(i);
+			
 			if (columnaLlena == true) {
 				tableroLleno = true;	
 			}
@@ -100,7 +99,7 @@ public class Tablero {
 		
 		for (int i=0; i<FILAS; i++) {
 			
-			if (casillas[i][columna].estaOcupada()) {
+			if (casillas[i][columna].estaOcupada()==true) {
 				columnaLlena = true;
 			}
 		}
@@ -221,6 +220,42 @@ public class Tablero {
 		}
 		return conseguido;
 	}
+	
+	
+	/**
+	 * Método comprobarDiagonalNE
+	 * Recibirá como parámetros fila, columna y ficha.
+	 * Con este método comprobaremos si hay cuatro fichas del mismo color consecutivas
+	 * en la diagonal que va desde abajo a la izquierda hasta arriba a la derecha (pasando 
+	 * por la casilla indicada por la fila y la columna).
+	 */
+	private boolean comprobarDiagonalNE(int fila, int columna, Ficha ficha) {
+		
+		int desplazamientoInicial = menor(fila, columna);
+		
+		int filaInicial = fila - desplazamientoInicial;
+		int columnaInicial = columna - desplazamientoInicial;
+		
+		int contadorFichas = 0;
+		boolean conseguido = false;
+		
+		for (int i=filaInicial; i<FILAS; i++) {
+			for (int j=columnaInicial; i<COLUMNAS; j++) {
+				
+				if(casillas[i][j].getFicha() == ficha) {
+					contadorFichas++;
+					
+					if(objetivoAlcanzado(contadorFichas)==true) {
+						conseguido = true;
+					}
+				} else {
+					contadorFichas = 0;
+				}
+			}
+		}
+		return conseguido;
+	}
+	
 	
 	
 	/**
