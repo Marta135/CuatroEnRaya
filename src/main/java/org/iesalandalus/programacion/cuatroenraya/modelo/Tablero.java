@@ -256,6 +256,40 @@ public class Tablero {
 		return conseguido;
 	}
 	
+
+	/**
+	 * Método comprobarDiagonalNO:
+	 * Recibirá como parámetros fila, columna y ficha.
+	 * Con este método comprobaremos si hay cuatro fichas del mismo color consecutivas
+	 * en la diagonal que va desde abajo a la derecha hasta arriba a la izquierda (pasando 
+	 * por la casilla indicada por la fila y la columna).
+	 */
+	private boolean comprobarDiagonalNO(int fila, int columna, Ficha ficha) {
+		
+		int desplazamientoInicial = menor(fila, ((COLUMNAS-1)-columna));
+		
+		int filaInicial = fila - desplazamientoInicial;
+		int columnaInicial = columna + desplazamientoInicial;
+		
+		int contadorFichas = 0;
+		boolean conseguido = false;
+		
+		for (int i=filaInicial; i<FILAS; i++) {
+			for (int j=columnaInicial; j>0; j--) {
+				
+				if(casillas[i][j].getFicha() == ficha) {
+					contadorFichas++;
+					
+					if(objetivoAlcanzado(contadorFichas)==true) {
+						conseguido = true;
+					}
+				} else {
+					contadorFichas = 0;
+				}
+			}
+		}
+		return conseguido;
+	}
 	
 	
 	/**
