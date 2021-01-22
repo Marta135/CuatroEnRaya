@@ -76,14 +76,10 @@ public class Tablero {
 		boolean tableroLleno = false;
 		
 		for (int i=0; i<COLUMNAS; i++) {
-			
-			boolean columnaLlena = columnaLlena(i);
-			
-			if (columnaLlena == true) {
+			if (columnaLlena(i) == true) {
 				tableroLleno = true;	
 			}
 		}
-		
 		return tableroLleno;
 	}
 	
