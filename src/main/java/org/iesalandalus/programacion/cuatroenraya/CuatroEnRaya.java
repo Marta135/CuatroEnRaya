@@ -36,6 +36,31 @@ public class CuatroEnRaya {
 	
 	/**********MÉTODOS**************/
 	/**
+	 * Método jugar:
+	 *Mientras no queden casillas libres, repetirá la acción de tirar, alternando
+	 *los jugadores en cada iteración.
+	 *Al terminar informará de quién ha ganado o que no hay más casillas libres.
+	 */
+	public void jugar() {
+		
+		int turno = 0;
+		boolean hayGanador = false;
+		Jugador jugadorQueJuega = jugadores[turno];
+		
+		while (!tablero.estaLleno() && !hayGanador) {
+			jugadorQueJuega = jugadores[turno++ % NUMERO_JUGADORES];
+			hayGanador = tirar(jugadorQueJuega);
+		}
+		
+		if(hayGanador) {
+			System.out.printf("ENHORABUENA, %s has ganado!!!", jugadorQueJuega.getNombre());
+		} else {
+			System.out.println("Habéis empatado ya que no quedan más casillas libres. ");
+		}
+	}
+	
+	
+	/**
 	 * Método tirar:
 	 * Recibirá como parámetro el jugador que va a tirar y devolverá true o false
 	 * indicando si esa jugada ha resultado ganadora o no.
