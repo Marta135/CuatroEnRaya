@@ -1,7 +1,10 @@
 package org.iesalandalus.programacion.cuatroenraya;
 
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.cuatroenraya.modelo.Jugador;
 import org.iesalandalus.programacion.cuatroenraya.modelo.Tablero;
+import org.iesalandalus.programacion.cuatroenraya.vista.Consola;
 
 public class CuatroEnRaya {
 
@@ -30,5 +33,29 @@ public class CuatroEnRaya {
 		tablero = new Tablero();
 	}
 	
+	
+	/**********MÉTODOS**************/
+	/**
+	 * Método tirar:
+	 * Recibirá como parámetro el jugador que va a tirar y devolverá true o false
+	 * indicando si esa jugada ha resultado ganadora o no.
+	 */
+	private boolean tirar(Jugador jugador) {
+		
+		boolean jugadaGanadora = false;
+		boolean jugadaValida = false;
+		
+		do {
+			try {
+				jugadaGanadora = tablero.introducirFicha(Consola.leerColumna(jugador), jugador.getColorFichas());
+				System.out.printf("%n%s%n", tablero);
+				jugadaValida = true;
+			} catch (OperationNotSupportedException e) {
+				System.out.println(e.getMessage());
+				jugadaValida = false;
+			}
+		} while (!jugadaValida);
+		return jugadaGanadora;
+	}
 	
 }
