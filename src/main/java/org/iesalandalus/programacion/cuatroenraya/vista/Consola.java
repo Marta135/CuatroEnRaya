@@ -1,6 +1,7 @@
 package org.iesalandalus.programacion.cuatroenraya.vista;
 
 import org.iesalandalus.programacion.cuatroenraya.modelo.Ficha;
+import org.iesalandalus.programacion.cuatroenraya.modelo.Jugador;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class Consola {
@@ -57,5 +58,22 @@ public class Consola {
 		
 		return colorFichas;
 	}
+	
+	
+	/**
+	 * Método leerJugador:
+	 * Leerá el nombre del primer jugador y el color de sus fichas.
+	 */
+	public static Jugador leerJugador() {
+		
+		System.out.println("Introduce los datos del PRIMER jugador ");
+		String primerNombre = leerNombre();
+		Ficha primeraFicha = elegirColorFichas();
+		Jugador primerJugador = new Jugador(primerNombre, primeraFicha);
+		
+		return primerJugador;
+	}
+	
+
 	
 }
