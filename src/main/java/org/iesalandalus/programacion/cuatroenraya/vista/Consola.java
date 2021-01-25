@@ -91,5 +91,23 @@ public class Consola {
 	}
 	
 	
-	
+	/**
+	 * Método leerColumna:
+	 * Recibirá como parámetro el jugador que debe introducir la columna para una tirada.
+	 * Devolverá un entero representando la columna elegida.
+	 * El método imprimirá el nombre del jugador y le indicará que elija la columna en 
+	 * la que quiere introducir su ficha. 
+	 */
+	public static int leerColumna(Jugador jugador) {
+		
+		int columna;
+		
+		do {
+			System.out.printf("%s, introduce la columna en la que deseas introducir la ficha (0 - 6): ", jugador.getNombre());
+			columna = Entrada.entero();
+		} while (columna<0 || columna>6);
+		
+		return columna;
+	}
+
 }
