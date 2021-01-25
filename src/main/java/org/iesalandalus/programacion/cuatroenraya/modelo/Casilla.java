@@ -14,7 +14,6 @@ public class Casilla {
 	 * ficha a null.
 	 */
 	public Casilla () {
-		
 		this.ficha = null;
 	}
 	
@@ -27,21 +26,15 @@ public class Casilla {
 
 	public void setFicha(Ficha ficha) throws OperationNotSupportedException {
 		
-		if (estaOcupada()== false) {
-			
-			if (ficha==null) {
-				throw new NullPointerException("ERROR: No se puede poner una ficha nula.");
-			} else if (ficha == Ficha.AZUL) {
-				this.ficha = Ficha.AZUL;
-			} else if (ficha == Ficha.VERDE) {
-				this.ficha = Ficha.VERDE;
-			} else {
-				throw new IllegalArgumentException("ERROR: El color escogido es incorrecto.");
-			}
-		
-		} else {
-			throw new OperationNotSupportedException("ERROR: Ya contengo una ficha.");
+		if (ficha==null) {
+			throw new NullPointerException("ERROR: No se puede poner una ficha nula.");
 		}
+		
+		if (estaOcupada()== true) {
+			throw new OperationNotSupportedException("ERROR: Ya contengo una ficha.");
+		} 
+		
+		this.ficha = ficha;			
 	}	
 	
 	
