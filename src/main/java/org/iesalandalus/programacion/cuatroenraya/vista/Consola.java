@@ -75,5 +75,21 @@ public class Consola {
 	}
 	
 
+	/**
+	 * Método leerJugador:
+	 * Aceptará como parámetro una ficha.
+	 * Leerá el nombre del segundo jugador y devolverá dicho jugador con el color de
+	 * ficha pasado como parámetro.
+	 */
+	public static Jugador leerJugador (Ficha ficha) {
+		
+		System.out.println("Introduce los datos del SEGUNDO jugador ");
+		String segundoNombre = leerNombre();
+		Jugador segundoJugador = new Jugador(segundoNombre, ficha);
+		
+		return segundoJugador;
+	}
+	
+	
 	
 }
