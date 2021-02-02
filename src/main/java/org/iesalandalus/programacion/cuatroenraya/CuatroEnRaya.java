@@ -79,6 +79,7 @@ public class CuatroEnRaya {
 				System.out.println(e.getMessage());
 				jugadaValida = false;
 			}
+			
 		} while (!jugadaValida);
 		return jugadaGanadora;
 	}

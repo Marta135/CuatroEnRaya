@@ -27,7 +27,7 @@ public class Consola {
 		String nombre;
 		
 		do {
-			System.out.println("Introduce el nombre del jugador: ");
+			System.out.print("Introduce el nombre del jugador: ");
 			nombre = Entrada.cadena();
 		} while (nombre.matches("") || nombre.matches("\s+") || nombre == null);
 	
@@ -44,9 +44,9 @@ public class Consola {
 		int opcion;
 		
 		do {
-			System.out.println("Elige el color de tus fichas: (0-AZUL, 1-VERDE): ");
+			System.out.print("Elige el color de tus fichas: (0-AZUL, 1-VERDE): ");
 			opcion = Entrada.entero();
-		} while (opcion!=0 || opcion!=1);
+		} while (opcion!=0 && opcion!=1);
 		
 		Ficha colorFichas;
 		
@@ -55,7 +55,6 @@ public class Consola {
 		} else {
 			colorFichas = Ficha.VERDE;
 		}
-		
 		return colorFichas;
 	}
 	

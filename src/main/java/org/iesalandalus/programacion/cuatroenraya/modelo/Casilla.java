@@ -30,11 +30,11 @@ public class Casilla {
 			throw new NullPointerException("ERROR: No se puede poner una ficha nula.");
 		}
 		
-		if (estaOcupada()== true) {
+		if (estaOcupada()) {
 			throw new OperationNotSupportedException("ERROR: Ya contengo una ficha.");
 		} 
 		
-		this.ficha = ficha;			
+		this.ficha = ficha;	
 	}	
 	
 	
@@ -45,14 +45,12 @@ public class Casilla {
 	 * una ficha. 
 	 */
 	public boolean estaOcupada() {
-		
-		boolean casillaOcupada = false;
-		
-		if (this.ficha==Ficha.AZUL || this.ficha==Ficha.VERDE) {
-			casillaOcupada = true;
+				
+		if (ficha != null) {
+			return true;
+		} else {
+			return false;
 		}
-			
-		return casillaOcupada;
 	}
 
 	
